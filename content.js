@@ -1,15 +1,15 @@
 (function() {
   'use strict';
 
-  const phonePatterns = [
+  var phonePatterns = [
     /\b\+?1?[-.]?\(?([0-9]{3})\)?[-.]?([0-9]{3})[-.]?([0-9]{4})\b/g,
     /\b\+?([0-9]{1,3})[-.\s]?\(?([0-9]{2,4})\)?[-.\s]?([0-9]{3,4})[-.\s]?([0-9]{3,4})\b/g,
     /\b([0-9]{3})[-.]([0-9]{3})[-.]([0-9]{4})\b/g,
     /\b\(([0-9]{3})\)\s?([0-9]{3})[-.]([0-9]{4})\b/g
   ];
 
-  const telifiedClass = 'telified-link';
-  const processedAttr = 'data-telified';
+  var telifiedClass = 'telified-link';
+  var processedAttr = 'data-telified';
 
   function cleanPhoneNumber(phone) {
     return phone.replace(/[^0-9+]/g, '');
@@ -19,7 +19,7 @@
     if (node.nodeType !== Node.TEXT_NODE) return false;
     if (!node.parentNode) return false;
     
-    const tagName = node.parentNode.tagName;
+    var tagName = node.parentNode.tagName;
     if (['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'A'].includes(tagName)) return false;
     if (node.parentNode.hasAttribute(processedAttr)) return false;
     
