@@ -29,8 +29,8 @@
   function telifyNode(node) {
     if (!isValidNode(node)) return;
 
-    let text = node.textContent;
-    let hasMatch = false;
+    var text = node.textContent;
+    var hasMatch = false;
 
     phonePatterns.forEach(pattern => {
       if (pattern.test(text)) {
@@ -41,8 +41,8 @@
     if (!hasMatch) return;
 
     var fragment = document.createDocumentFragment();
-    let lastIndex = 0;
-    let modified = false;
+    var lastIndex = 0;
+    var modified = false;
 
     phonePatterns.forEach(pattern => {
       var matches = [...text.matchAll(pattern)];
@@ -94,7 +94,7 @@
       );
 
       var nodes = [];
-      let node;
+      var node;
       while (node = walker.nextNode()) {
         nodes.push(node);
       }
@@ -118,7 +118,7 @@
               { acceptNode: node => isValidNode(node) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT }
             );
             var textNodes = [];
-            let textNode;
+            var textNode;
             while (textNode = walker.nextNode()) {
               textNodes.push(textNode);
             }
