@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Telify - Phone Number Links",
+  "name": "Click to call",
   "version": "1.0",
   "description": "Automatically converts phone numbers into clickable tel: links on any webpage",
   "permissions": [
@@ -10,7 +10,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Telify - Phone Number Links"
+    "default_title": "Click to call"
   },
   "content_scripts": [
     {
