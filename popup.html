@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Telify</h1>
+    <p class="subtitle">Phone Number Link Converter</p>
+    
+    <div class="toggle-section">
+      <label class="toggle-label">
+        <input type="checkbox" id="enableToggle" checked>
+        <span class="toggle-slider"></span>
+        <span class="toggle-text">Enable Telify</span>
+      </label>
+    </div>
+    
+    <div class="info">
+      <p>Automatically converts phone numbers on web pages into clickable tel: links.</p>
+      <p class="status" id="status">✓ Active on this page</p>
+    </div>
+    
+    <button id="convertNow" class="btn">Convert Now</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
