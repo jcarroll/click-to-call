@@ -40,12 +40,12 @@
 
     if (!hasMatch) return;
 
-    const fragment = document.createDocumentFragment();
+    var fragment = document.createDocumentFragment();
     let lastIndex = 0;
     let modified = false;
 
     phonePatterns.forEach(pattern => {
-      const matches = [...text.matchAll(pattern)];
+      var matches = [...text.matchAll(pattern)];
       
       matches.forEach(match => {
         if (match.index >= lastIndex) {
@@ -53,10 +53,10 @@
             fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
           }
 
-          const phoneNumber = match[0];
-          const cleanNumber = cleanPhoneNumber(phoneNumber);
+          var phoneNumber = match[0];
+          var cleanNumber = cleanPhoneNumber(phoneNumber);
           
-          const link = document.createElement('a');
+          var link = document.createElement('a');
           link.href = 'tel:' + cleanNumber;
           link.textContent = phoneNumber;
           link.className = telifiedClass;
@@ -83,7 +83,7 @@
     chrome.storage.sync.get(['enabled'], function(result) {
       if (result.enabled === false) return;
 
-      const walker = document.createTreeWalker(
+      var walker = document.createTreeWalker(
         document.body,
         NodeFilter.SHOW_TEXT,
         {
@@ -93,7 +93,7 @@
         }
       );
 
-      const nodes = [];
+      var nodes = [];
       let node;
       while (node = walker.nextNode()) {
         nodes.push(node);
@@ -103,7 +103,7 @@
     });
   }
 
-  const observer = new MutationObserver(function(mutations) {
+  var observer = new MutationObserver(function(mutations) {
     chrome.storage.sync.get(['enabled'], function(result) {
       if (result.enabled === false) return;
 
@@ -112,12 +112,12 @@
           if (node.nodeType === Node.TEXT_NODE) {
             telifyNode(node);
           } else if (node.nodeType === Node.ELEMENT_NODE) {
-            const walker = document.createTreeWalker(
+            var walker = document.createTreeWalker(
               node,
               NodeFilter.SHOW_TEXT,
               { acceptNode: node => isValidNode(node) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT }
             );
-            const textNodes = [];
+            var textNodes = [];
             let textNode;
             while (textNode = walker.nextNode()) {
               textNodes.push(textNode);
